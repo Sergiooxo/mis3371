@@ -2,7 +2,7 @@
 Program name: homework2.js
 Author: Sergio Gonzalez
 Date created: 1st March, 2025 
-Date last edited: 9th March, 2025
+Date last edited: 13th April, 2025
 Version: 1.5
 Description: Js will be coded here
 */
