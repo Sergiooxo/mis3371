@@ -1,0 +1,426 @@
+   <!DOCTYPE html>
+<!--
+Program name: hw2.alt.html
+Author: Sergio Gonzalez
+Date created: 1st March, 2025 
+Date last edited: 7th March, 2025
+Version: 1.0
+Description: This is a sample form derived from hw.2 description
+  -->
+
+ 
+<html lang="en">
+  <head>
+    <meta charset="utf-8"> 
+    <title>Registration Form Table</title> 
+    <link rel="stylesheet" type="text/css" href="./homework2.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&display=swap">
+  
+  </head>
+  <body>
+      <div>
+      <table width="100%"> <!-- Table shows the logo as well as the date in the far right -->
+        <tr>
+          <td><img src="./MemorialHermanLogo.jpeg" 
+          alt="photo" 
+          class="logo">
+          </td>
+          <td class="td-memorial">
+            <h1 class="title">MEMORIAL HERMANN HOSPITAL</h1> 
+          </td>
+          <td class="td-date"><div>Today's date: <span id="today"></span>
+          </div></td>
+        </tr>
+      </table>
+      </div>
+      <hr width="100%
+      >
+
+      <div style="margin: 50px 0;"></div>
+
+      <form name='registration' 
+        id="registration"
+        action="./ThankyouHW1.html" 
+        method="POST" 
+        onSubmit="return formValidation ();">
+            <!-- Here I created the second table that displays the first two rows of data -->
+            <table class="custom-table"> 
+            <!-- Here is where the first text of the body begins -->
+            <tr>
+              <th class="form-title" colspan="3"><h2>Registration Form</h2></th> 
+            </tr>
+            <tr>
+              <td colspan="3" >Name</td>
+            </tr>
+            <tr>
+              <td><input type="text" 
+                id="first_name" 
+                name="First Name" 
+                placeholder="First" 
+                maxlength="30"
+                onblur="validateFirstName()"
+                oninput="validateFirstName()"
+                oninvalid="this.setCustomValidity('Invalid first name. Only letters, apostrophes, and dashes allowed.')"
+                required>
+              <span id="firstname_message" class="validation-message"></span>
+              </td>
+              <td><input type="text" 
+                id="middle_initial" 
+                name="Middle Initial" 
+                class="small" 
+                maxlength="1" 
+                placeholder="M.I."
+                onblur="validateMiddleInitial()"
+                oninput="validateMiddleInitial()"
+                oninvalid="this.setCustomValidity('Invalid middle initial. Only one letter allowed.')"> 
+              <div><span id="middle_initial_message" class="validation-message"</span></div>
+              </td>
+              <td><input type="text" 
+                id="last_name" 
+                name="Last Name" 
+                placeholder="Last" 
+                maxlength="30"
+                onblur="validateLastName()"
+                oninput="validateLastName()"
+                oninvalid="this.setCustomValidity('Invalid last name. Only letters, apostrophes, numbers (2-5), and dashes allowed.')" 
+                required>
+              <span id="last_name_message" class="validation-message"></span>
+              </td>
+            </tr>
+            <tr> 
+              <td colspan="3"></td>
+            </tr>
+            <!-- The calendar/date selection is added here --> 
+            <tr>                                      
+              <td>Date of Birth: <input type="date" 
+                id="selectdate" 
+                name="DOB"
+                oninput="validateDateOfBirth()">
+              <span id="date_message" class="validation-message"></span>
+               </td>
+              <td>SSN: <input type="password" 
+                id="ssn" 
+                name="SSN"
+                pattern="\d{3}-\d{2}-\d{4}$" 
+                title="ssn ###-##-####" 
+                maxlength="11" 
+                placeholder="XXX-XX-XXXX" 
+                onblur="validateSSN()"
+                oninput="autoFormatSSN()"
+                required inputmode="numeric">
+              <span id="ssn_message" class="validation-message"></span>
+              </td> 
+              <!-- The first set of radio buttons added here -->
+              <td><label>Gender:  
+              <input type="radio" 
+                name="Sex" 
+                value="male" 
+                required> Male</label>
+              <label><input 
+                type="radio" 
+                name="Sex" 
+                value="female" 
+                required> Female</label>
+              </td>
+            </tr>
+          </table>
+          <!-- This table displays address prompts for users to fill in-->
+          <table class="custom-table"> 
+          <tr>
+            <td colspan="3">Address</td>
+          <tr>
+          <tr>
+            <td colspan="2"><input type="text" 
+              id="adressline1" 
+              name="Address line 1" 
+              placeholder="123 Avenue Ln (req'd)" 
+              minlength="2"
+              maxlength="30" 
+              required>
+            </td>
+            <td colspan="2"><input type="text" 
+              id="adressline2optional" 
+              name="Address line 2" 
+              minlength="2"
+              maxlength="30" 
+              placeholder="Apt, Suite, etc.">
+            </td>
+          </tr>
+          <tr>
+            <td><input type="text" 
+              id="city" 
+              name="City" 
+              placeholder="City"
+              minlength="2" 
+              maxlength="30" 
+              required>
+            </t>
+            <td><input type="text"
+              id="zipcode" 
+              name="Zip Code" 
+              placeholder="Zip-Code" 
+              maxlength="10" 
+              required
+              oninput="validateZipCode()">
+            <span id="zipcode_message" class="validation-message"></span>  
+            </td>
+            <!-- Format to show abbreviated states, and option to prompt user to select -->
+            <td>State: 
+              <select id="state" name="State" required> <!-- Code obtained from https://www.freeformatter.com/usa-state-list-html-select.html -->
+                <option value="" disabled selected>Please select a state</option> 
+                <option value="AL">AL</option>
+                <option value="AK">AK</option>
+                <option value="AR">AR</option>
+                <option value="AZ">AZ</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DC">DC</option>
+                <option value="DE">DE</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="HI">HI</option>
+                <option value="IA">IA</option>
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="IN">IN</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="MA">MA</option>
+                <option value="MD">MD</option>
+                <option value="ME">ME</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MO">MO</option>
+                <option value="MS">MS</option>
+                <option value="MT">MT</option>
+                <option value="NC">NC</option>
+                <option value="NE">NE</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>
+                <option value="NV">NV</option>
+                <option value="NY">NY</option>
+                <option value="ND">ND</option>
+                <option value="OH">OH</option>
+                <option value="OK">OK</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VT">VT</option>
+                <option value="VA">VA</option>
+                <option value="WA">WA</option>
+                <option value="WI">WI</option>
+                <option value="WV">WV</option>
+                <option value="WY">WY</option> 
+                <option value="PR">PR</option>         
+            </tr>    
+          <span id="state_message" class="validation-message"></span>
+          </table>
+      <hr class="hr-spacing">
+           <!-- Table to gather user information starts here -->
+          <table class="custom-table"> 
+            <tr>
+             <td colspan="3" class="section-title">User Information</td> 
+            </tr>
+            <tr>
+              <td>E-mail: <input class="email"
+                type="email" 
+                id="email" 
+                name="Email" 
+                placeholder="E-mail" 
+                maxlength="40" 
+                required
+                oninput="validateEmail()">
+              <span id="email_message" class="validation-message"></span>
+              </td>
+              <td colspan="1">Phone Number:<input class="phone"
+                type="tel"
+                id="phonenumber"
+                name="Phone Number"
+                placeholder="555-555 5555"
+                maxlength="12"
+                oninput="formatPhoneNumber()">
+              <span id="phone_message" class="validation-message"></span>
+              </td>
+              <td>
+                <fieldset>
+                  <!-- First set of checkboxes -->
+                  <legend> Select Contact Preference</legend> 
+                    <label><input type="checkbox" 
+                    name="Contact Email" 
+                    value="Email"> 
+                    Email</label><br>
+                  <label><input type="checkbox" 
+                    name="Contact Phone" 
+                    value="phonecall">
+                    Phone Call</label><br>
+                  <label><input type="checkbox" 
+                    name="Contact SMS" 
+                    value="SMS"> SMS</label><br>
+                </fieldset>
+              </td>
+            </tr>
+            <tr>
+              <td>User id: <input type="text"
+                id="userid"
+                name="User id"
+                maxlength="20""
+                required
+                oninput="validateUserId()"
+                onblur="validateUserId()">
+              <span id="userid_message" class="validation-message"></span>
+              </td>
+              <td>Password: <input type="password" class="password-input"
+                id="password"
+                name="Password"
+                maxlength="30"
+                placeholder="Req'd"
+                required
+                oninput="validatePasswords()">
+              <span id="password_message" class="validation-message"></span>
+              </td>
+              <td>Confirm Password: <input type="password" class="password-input"
+                id="confirm_password"
+                name="Confirm Password"
+                maxlength="30"
+                placeholder="Req'd"
+                required
+                oninput="validatePasswords()">
+              <span id="confirm_password_message" class="validation-message"></span>
+              </td>
+            </tr>
+          </table>
+
+      <hr class="hr-spacing">
+          <!-- Table asking about medical informtion -->
+          <table class="custom-table"> 
+            <tr>
+              <td colspan="3" class="section-title">Reason for Visit</td>
+            </tr>
+            <tr>
+              <td>Symptom Onset: <input type="date"
+                id="selectdate" 
+                name="Symptom onset date">
+              </td>
+              <!-- Second set of radio buttons -->
+              <td><label>Been Vaccinated? 
+                <input type="radio" 
+                  name="Vaccinated" 
+                  value="yes" 
+                  required> Yes</label>
+                  <label><input type="radio" 
+                  name="Vaccinated" 
+                  value="no" 
+                  required> No</label>
+              </td>
+              <td>
+                <fieldset>
+                  <!-- Second set of checkboxes -->
+                  <legend class="legend-caption">Select applicable:</legend> 
+                    <label><input type="checkbox" 
+                    name="Allergy" 
+                    value="allergy"> 
+                    Allergies</label><br>
+                  <label><input type="checkbox" 
+                    name="Flusymptoms" 
+                    value="flusymptoms">
+                    Flu</label><br>
+                  <label><input type="checkbox" 
+                    name="Migraine" 
+                    value="migraine"> Migraine</label><br>
+                  <label><input type="checkbox" 
+                    name="Bloodtest" 
+                    value="bloodtest"> Blood Test</label><br>
+                  <label><input type="checkbox" 
+                    name="Medicationrefill" 
+                    value="medicationrefill"> Medication Refill</label><br>
+          </tr>
+          
+          <tr>
+            <td> <!--Third set of radio buttons-->
+              <label>Have Insurance?<input type="radio" 
+                  name="Insurance" 
+                  value="yes" 
+                  required> Yes</label>
+                  <label><input type="radio" 
+                  name="insurance" 
+                  value="no" 
+                  required> No</label></td>
+              <td class="slider-text">
+                <label for="budget">Health rating (1-10, 10 = best): <span id="sliderValue">5</span>
+                </label>
+              <!-- Range slider added here and java function added "oninput" -->
+              <input type="range" 
+                id="Budget" 
+                name="Budget" 
+                min="0" max="10" 
+                value="5" 
+                step="1" 
+                oninput="updateSliderValue(this.value)" 
+                required>
+              </td>
+          </tr>
+          <tr>
+            <!-- The text area is inserted here along with a placeholder -->
+            <td>Tell us about yourself:
+              <textarea id="about" 
+                name="About" 
+                rows="5" 
+                cols="50" 
+                maxlength="500" 
+                placeholder="Provide more details..."></textarea>
+            </td>
+          </tr>
+
+        <!-- The table created here is to reserve a spot for the submit and reset fields button -->
+        <table class="custom-table">
+          <tr>
+            <td>
+              <button type="reset">Reset Fields</button>
+            </td>
+            <td>
+              <button type="submit">Submit</button>
+            </td>
+            <td>
+              <button type="button" id="reviewButton" onclick="getcustomerinformation()">Review</button> <!-- New button that will review the user inout infor-->
+            </td>
+          </tr>
+        </table>
+        <div id="outputformdata" style="margin-top: 20px;"></div>
+
+   
+        </form>
+        <div style="height: 20px;"></div>
+
+        <div class="color-block">
+        <table> <!-- Credit for footer idea and image https://memorialhermann.org/about-us/contact-us -->
+            <tr>
+              <td>
+                <p class="footer-paragraph">Memorial Hermann Health System</p>
+                <p class="footer-paragraph">929 Gessner Drive, Suite 2600</p>
+                <p class="footer-paragraph">Houston, Texas 77024</p>
+                <p class="footer-paragraph"><b><a href="./contactusHW1.html">Contact Us</a></b></p>
+              </td>
+              <td style="text-align: right; vertical-align: top;"> 
+                <img src="./phone-in-hand-circle.jpg" 
+                alt="Small Image" 
+                class="footer-logo">
+              </td>
+            </tr>
+          </table>          
+        </div>
+        
+        
+  </body>
+
+  <script src="./homework2.js"></script>
+</html>
+
+  

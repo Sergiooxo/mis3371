@@ -1,0 +1,395 @@
+  <!DOCTYPE html>
+<!--
+Program name: hw1.alt.html
+Author: Sergio Gonzalez
+Date created: 3rd February, 2025 
+Date last edited: 9th February, 2025
+Version: 1.0
+Description: This is a sample form derived from hw.1 description
+  -->
+
+ 
+<html lang="en">
+  <head>
+    <meta charset="utf-8"> 
+    <title>Registration Form Table</title> 
+    <link rel="stylesheet" type="text/css" href="./homework1.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&display=swap">
+  
+  </head>
+  <body>
+      <div>
+      <table width="100%"> <!-- Table shows the logo as well as the date in the far right -->
+        <tr>
+          <td><img src="./MemorialHermanLogo.jpeg" 
+          alt="photo" 
+          class="logo">
+          </td>
+          <td class="td-memorial">
+            <h1 class="title">MEMORIAL HERMANN HOSPITAL</h1> 
+          </td>
+          <td class="td-date"><div>Today's date: <span id="today"></span>
+          </div></td>
+        </tr>
+      </table>
+      </div>
+      <hr width="100%
+      >
+
+      <div style="margin: 50px 0;"></div>
+
+      <form name='registration' 
+        action="./ThankyouHW1.html" 
+        method="POST" 
+        onSubmit="return formValidation ();">
+            <!-- Here I created the second table that displays the first two rows of data -->
+            <table class="custom-table"> 
+            <!-- Here is where the first text of the body begins -->
+            <tr>
+              <th class="form-title" colspan="3"><h2>Registration Form</h2></th> 
+            </tr>
+            <tr>
+              <td colspan="3" >Name</td>
+            </tr>
+            <tr>
+              <td><input type="text" 
+                id="first_name" 
+                name="First Name" 
+                placeholder="First" 
+                maxlength="30" 
+                required>
+              </td>
+              <td><input type="text" 
+                id="middle_initial" 
+                name="Middle Initial" 
+                class="small" 
+                maxlength="1" 
+                placeholder="M.I."> 
+              </td>
+              <td><input type="text" 
+                id="last_name" 
+                name="Last Name" 
+                placeholder="Last" 
+                maxlength="30" 
+                required>
+              </td>
+            </tr>
+            <tr> 
+              <td colspan="3"></td>
+            </tr>
+            <!-- The calendar/date selection is added here --> 
+            <tr>                                      
+              <td>Date of Visit: <input type="date" 
+                id="selectdate" 
+                name="selectdate">
+               </td>
+              <td>SSN: <input type="tel" 
+                id="ssn" 
+                pattern="\d{3}-\d{2}-\d{4}$" 
+                title="ssn ###-##-####" 
+                maxlength="11" 
+                placeholder="XXX-XX-XXXX" 
+
+                required inputmode="numeric">
+              </td> 
+              <!-- The first set of radio buttons added here -->
+              <td><label>Gender:  
+              <input type="radio" 
+                name="sex" 
+                value="male" 
+                required> Male</label>
+              <label><input 
+                type="radio" 
+                name="sex" 
+                value="female" 
+                required> Female</label>
+              </td>
+            </tr>
+          </table>
+          <!-- This table displays address prompts for users to fill in-->
+          <table class="custom-table"> 
+          <tr>
+            <td colspan="3">Address</td>
+          <tr>
+          <tr>
+            <td colspan="2"><input type="text" 
+              id="adressline1" 
+              name="Address line 1" 
+              placeholder="123 Avenue Ln (req'd)" 
+              maxlength="30" 
+              required>
+            </td>
+            <td colspan="2"><input type="text" 
+              id="adressline2optional" 
+              name="Optional 
+              address line 2" 
+              maxlength="30" 
+              placeholder="Apt, Suite, etc.">
+            </td>
+          </tr>
+          <tr>
+            <td><input type="text" 
+              id="city" 
+              name="City" 
+              placeholder="City" 
+              maxlength="30" 
+              required>
+            </t>
+            <td><input type="text"
+              id="zipcode" 
+              name="Zip Code" 
+              placeholder="Zip-Code" 
+              maxlength="5" 
+              required>
+            </td>
+            <!-- Format to show abbreviated states, and option to prompt user to select -->
+            <td>State: 
+              <select id="state" name="State" required> <!-- Code obtained from https://www.freeformatter.com/usa-state-list-html-select.html -->
+                <option value="" disabled selected>Please select a state</option> 
+                <option value="AL">AL</option>
+                <option value="AK">AK</option>
+                <option value="AR">AR</option>
+                <option value="AZ">AZ</option>
+                <option value="CA">CA</option>
+                <option value="CO">CO</option>
+                <option value="CT">CT</option>
+                <option value="DC">DC</option>
+                <option value="DE">DE</option>
+                <option value="FL">FL</option>
+                <option value="GA">GA</option>
+                <option value="HI">HI</option>
+                <option value="IA">IA</option>
+                <option value="ID">ID</option>
+                <option value="IL">IL</option>
+                <option value="IN">IN</option>
+                <option value="KS">KS</option>
+                <option value="KY">KY</option>
+                <option value="LA">LA</option>
+                <option value="MA">MA</option>
+                <option value="MD">MD</option>
+                <option value="ME">ME</option>
+                <option value="MI">MI</option>
+                <option value="MN">MN</option>
+                <option value="MO">MO</option>
+                <option value="MS">MS</option>
+                <option value="MT">MT</option>
+                <option value="NC">NC</option>
+                <option value="NE">NE</option>
+                <option value="NH">NH</option>
+                <option value="NJ">NJ</option>
+                <option value="NM">NM</option>
+                <option value="NV">NV</option>
+                <option value="NY">NY</option>
+                <option value="ND">ND</option>
+                <option value="OH">OH</option>
+                <option value="OK">OK</option>
+                <option value="OR">OR</option>
+                <option value="PA">PA</option>
+                <option value="RI">RI</option>
+                <option value="SC">SC</option>
+                <option value="SD">SD</option>
+                <option value="TN">TN</option>
+                <option value="TX">TX</option>
+                <option value="UT">UT</option>
+                <option value="VT">VT</option>
+                <option value="VA">VA</option>
+                <option value="WA">WA</option>
+                <option value="WI">WI</option>
+                <option value="WV">WV</option>
+                <option value="WY">WY</option>          
+            </tr>            
+          </table>
+      <hr class="hr-spacing">
+           <!-- Table to gather user information starts here -->
+          <table class="custom-table"> 
+            <tr>
+             <td colspan="3" class="section-title">User Information</td> 
+            </tr>
+            <tr>
+              <td>E-mail: <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                placeholder="E-mail" 
+                maxlength="40" 
+                required>
+              </td>
+              <td colspan="1">Phone Number:<input 
+                type="tel"
+                id="phonenumber"
+                name="phonenumber"
+                placeholder="(555)555 5555"
+                maxlength="10">
+              </td>
+              <td>
+                <fieldset>
+                  <!-- First set of checkboxes -->
+                  <legend class="legend-caption"> Select Contact Preference</legend> 
+                    <label><input type="checkbox" 
+                    name="communicationpreference" 
+                    value="Email"> 
+                    Email</label><br>
+                  <label><input type="checkbox" 
+                    name="communicationpreference" 
+                    value="phonecall">
+                    Phone Call</label><br>
+                  <label><input type="checkbox" 
+                    name="communicationpreference" 
+                    value="SMS"> SMS</label><br>
+                </fieldset>
+              </td>
+            </tr>
+            <tr>
+              <td>User id: <input type="text"
+                id="userid"
+                name="userid"
+                maxlength="20""
+                required>
+              </td>
+              <td>Password: <input type="text"
+                id="password"
+                name="password"
+                maxlength="15"
+                placeholder="Req'd"
+                required>
+              </td>
+              <td>Confirm Password: <input type="text"
+                id="password"
+                name="password"
+                maxlength="15"
+                placeholder="Req'd"
+                required>
+              </td>
+            </tr>
+          </table>
+
+      <hr class="hr-spacing">
+          <!-- Table asking about medical informtion -->
+          <table class="custom-table"> 
+            <tr>
+              <td colspan="3" class="section-title">Reason for Visit</td>
+            </tr>
+            <tr>
+              <td>Symptom Onset: <input type="date"
+                id="selectdate" 
+                name="selectdate">
+              </td>
+              <!-- Second set of radio buttons -->
+              <td><label>Been Vaccinated? 
+                <input type="radio" 
+                  name="vaccinated" 
+                  value="yesvaccinated" 
+                  required> Yes</label>
+                  <label><input type="radio" 
+                  name="vaccinated" 
+                  value="novaccinated" 
+                  required> No</label>
+              </td>
+              <td>
+                <fieldset>
+                  <!-- Second set of checkboxes -->
+                  <legend class="legend-caption">Select applicable:</legend> 
+                    <label><input type="checkbox" 
+                    name="allergy" 
+                    value="allergy"> 
+                    Allergies</label><br>
+                  <label><input type="checkbox" 
+                    name="flusymptoms" 
+                    value="flusymptoms">
+                    Flu</label><br>
+                  <label><input type="checkbox" 
+                    name="migraine" 
+                    value="migraine"> Migraine</label><br>
+                  <label><input type="checkbox" 
+                    name="bloodtest" 
+                    value="bloodtest"> Blood Test</label><br>
+                  <label><input type="checkbox" 
+                    name="medicationrefill" 
+                    value="medicationrefill"> Medication Refill</label><br>
+          </tr>
+          
+          <tr>
+            <td> <!--Third set of radio buttons-->
+              <label>Have Insurance?<input type="radio" 
+                  name="insurance" 
+                  value="yesinsurance" 
+                  required> Yes</label>
+                  <label><input type="radio" 
+                  name="insurance" 
+                  value="noinsurance" 
+                  required> No</label></td>
+              <td class="slider-text">
+                <label for="budget">Health rating (1-10, 10 = best): <span id="sliderValue">5</span>
+                </label>
+              <!-- Range slider added here -->
+              <input type="range" 
+                id="budget" 
+                name="budget" 
+                min="0" max="10" 
+                value="5" 
+                step="1" 
+                oninput="updateSliderValue(this.value)" 
+                required>
+              </td>
+          </tr>
+          <tr>
+            <!-- The text area is inserted here along with a placeholder -->
+            <td>Tell us about yourself:
+              <textarea id="about" 
+                name="about" 
+                rows="5" 
+                cols="50" 
+                maxlength="500" 
+                placeholder="Provide more details..."></textarea>
+            </td>
+          </tr>
+
+        <!-- The table created here is to reserve a spot for the submit and reset fields button -->
+        <table class="custom-table">
+          <tr>
+            <td>
+              <button type="reset">Reset Fields</button>
+            </td>
+            <td>
+              <button type="submit">Submit</button>
+            </td>
+          </tr>
+        </table>
+   
+        </form>
+        <div style="height: 20px;"></div>
+
+        <div class="color-block">
+        <table> <!-- Credit for footer idea and image https://memorialhermann.org/about-us/contact-us -->
+            <tr>
+              <td>
+                <p class="footer-paragraph">Memorial Hermann Health System</p>
+                <p class="footer-paragraph">929 Gessner Drive, Suite 2600</p>
+                <p class="footer-paragraph">Houston, Texas 77024</p>
+                <p class="footer-paragraph"><b><a href="./contactusHW1.html">Contact Us</a></b></p>
+              </td>
+              <td style="text-align: right; vertical-align: top;"> 
+                <img src="./phone-in-hand-circle.jpg" 
+                alt="Small Image" 
+                class="footer-logo">
+              </td>
+            </tr>
+          </table>          
+          </div>
+  </body>
+
+
+      <script> <!-- credit for javascript idea https://stackoverflow.com/questions/70983766/range-slider-avoid-moving-forward-when-reaching-a-value-specified-in-another-e -->
+        function updateSliderValue(value) 
+        {
+          document.getElementById("sliderValue").textContent = `${value}`;
+        }
+    </script>
+    <script> <!-- Java script from view-source:https://profjake.w3spaces.com/MIS3371/homework3.html -->
+    const d = new Date();
+    let text = d.toLocaleDateString();
+    document.getElementById("today").innerHTML = text;
+    </script>
+</html>
+
+  

@@ -1,0 +1,108 @@
+/* Place your CSS styles in this file */
+
+  /* Closest thing I found to the commercial font Memorial Hermann uses */
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@700&display=swap');
+.title 
+  {
+    font-family: 'Libre Franklin', sans-serif;
+    margin: 0;
+    font-size: 32px; 
+  }
+.section-title 
+  {
+    text-align: left;
+    font-weight: bold;
+  } 
+.legend-caption 
+  {
+    text-align: center;
+  }  
+.logo 
+  {
+    width: 250px;
+    height: auto;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+ .td-memorial 
+  {
+    width: 33.33%;
+    text-align: center;
+    vertical-align: middle;
+  } 
+ .td-date 
+  {
+    width: 33.33%;
+    text-align: right;
+    vertical-align: bottom;
+    padding: 0; 
+    height: 200px;
+  }
+body
+  {          
+    background-color: #F0F8FF;
+  }
+.form-title 
+  {
+    text-align: center;
+  }  
+.custom-table 
+  {
+    width: 60%;
+    margin: auto;
+    table-layout: fixed;
+  }
+td 
+  {
+    padding: 5px;            
+    border: 1px;
+  }
+  input[type="text"]
+  {
+    width:100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }  
+input[type="text"].small
+  {
+    width: 60px;
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+  }
+.color-block 
+  {
+    background-color: rgb(212, 221, 224); /* Choose your desired color here */
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    text-align: left;
+  }
+  }
+.center
+  {
+    text-align: center;
+  }
+.slider-text 
+  {
+    text-align: center;
+    vertical-align: middle;
+  }
+
+.hr-spacing
+  {
+    margin-top: 20px;
+    width: 60%;
+  }
+.footer-paragraph
+  {
+    margin: 5px 0;
+  }
+.footer-logo 
+  {
+    height: 90px;
+    width: 90px;
+    border-radius: 50%;
+  }  
