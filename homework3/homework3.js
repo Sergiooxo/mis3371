@@ -335,9 +335,9 @@ function validateUserId()
 
     //reviews the legnth min 5 and max 30 char
       //if criteria not met, then display the following messages listed below
-  if (/[^a-z0-9_-]/.test(userId) || userId.length < 5 || userId.length > 30) 
+  if (/[^a-z0-9_-]/.test(userId) || userId.length < 5 || userId.length > 20 || /^[0-9]/.test(userId))
   {
-    userIdMessage.innerHTML = "* User ID must be 5-30 characters, and only letters, numbers, underscores, and dashes are allowed. No spaces.";
+    userIdMessage.innerHTML = "* User ID must be 5-20 characters, and only letters, numbers, underscores, and dashes are allowed. No spaces. It cannot start with a number.";
     userIdMessage.style.color = "red";
     userIdMessage.classList.remove('success');
     userIdInput.value = userId.replace(/[^a-z0-9_-]/g, ''); //charcaters not valid are removed from the input field to meet criteria
