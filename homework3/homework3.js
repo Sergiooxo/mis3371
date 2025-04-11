@@ -1,5 +1,5 @@
  /*
-Program name: homework2.js
+Program name: homework3.js
 Author: Sergio Gonzalez
 Date created: 1st March, 2025 
 Date last edited: 13th April, 2025
