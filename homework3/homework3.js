@@ -296,6 +296,58 @@ document.querySelector('form[name="registration"]').onsubmit = function() {
     return validateState();
 };
 
+function validateAddressLine1() 
+  {
+    const input = document.getElementById("adressline1").value.trim();
+    const message = document.getElementById("adressline1_message");
+
+    if (input === "") 
+      {
+        message.textContent = "Address Line 1 is required.";
+      } 
+    else if (input.length < 2 || input.length > 30) 
+      {
+        message.textContent = "Must be between 2 and 30 characters.";
+      } 
+    else 
+      {
+        message.textContent = "";
+      }
+  }
+
+function validateAddressLine2() 
+  {
+    const input = document.getElementById("adressline2optional").value.trim();
+    const message = document.getElementById("adressline2optional_message");
+
+    if (input !== "" && (input.length < 2 || input.length > 30)) 
+      {
+      message.textContent = "Must be between 2 and 30 characters.";
+      } 
+    else 
+      {
+        message.textContent = "";
+      }
+  }
+
+function validateCity() 
+  {
+    const input = document.getElementById("city").value.trim();
+    const message = document.getElementById("city_message");
+
+    if (input === "") 
+      {
+        message.textContent = "City is required.";
+      } 
+    else if (input.length < 2 || input.length > 30)   
+      {
+        message.textContent = "Must be between 2 and 30 characters.";
+      } 
+    else 
+      {
+        message.textContent = "";
+      }
+  }
 
 
     //truncate occurs after you input the the '-' + 4 digits, if you input 5 digits only then no truncate occurs.

@@ -135,14 +135,18 @@ Description: This is a sample form derived from hw.3 description
               placeholder="123 Avenue Ln (req'd)" 
               minlength="2"
               maxlength="30" 
-              required>
+              required
+              oninput="validateAddressLine1()">
+              <span id="adressline1_message" class="validation-message"></span>
             </td>
             <td colspan="2"><input type="text" 
               id="adressline2optional" 
               name="Address line 2" 
               minlength="2"
               maxlength="30" 
-              placeholder="Apt, Suite, etc.">
+              placeholder="Apt, Suite, etc."
+              oninput="validateAddressLine2()">
+              <span id="adressline2optional_message" class="validation-message"></span>
             </td>
           </tr>
           <tr>
@@ -152,8 +156,10 @@ Description: This is a sample form derived from hw.3 description
               placeholder="City"
               minlength="2" 
               maxlength="30" 
-              required>
-            </t>
+              required
+              oninput="validateCity()">
+      <span id="city_message" class="validation-message"></span>
+            </td>
             <td><input type="text"
               id="zipcode" 
               name="Zip Code" 
