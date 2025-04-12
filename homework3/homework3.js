@@ -487,30 +487,25 @@ function validatePasswords() {
     }
   }
 
-  function validateEverything() 
-    {
-      let valid = true;
 
-        valid &= validateFirstName();
-        valid &= validateMiddleInitial();
-        valid &= validateLastName();
-        valid &= validateSSN();
-        valid &= validateEmail();
-        valid &= validateUserId();
-        valid &= validatePasswords();
-
-      if (valid) 
-        {
-          document.getElementById("submitButton").style.display = "inline";
-          alert("All validations passed. You may now submit the form.");
-        } 
-      else 
-        {
-          alert("Some fields are invalid. Please correct the errors and try again.");
-        }
-
-      return valid;
+  function validateEverything() {
+    const isValid =
+      validateFirstName() &&
+      validateMiddleInitial() &&
+      validateLastName() &&
+      validateDateOfBirth() &&
+      validateSSN() &&
+      validateEmail() &&
+      validatePhone() &&
+      validateAddress() &&
+      validateZipCode() &&
+      validateUserId() &&
+      validatePasswords();
+  
+    if (isValid) {
+      document.getElementById("submitButton").style.display = "inline-block";
+    } else {
+      alert("There are errors in the form. Please correct them before submitting.");
+      document.getElementById("submitButton").style.display = "none";
+    }
   }
-
-}
-
