@@ -489,6 +489,8 @@ function validatePasswords() {
 
 
   function validateEverything() {
+    console.log("Validate button clicked"); // Debugging line
+
     const isValid =
       validateFirstName() &&
       validateMiddleInitial() &&
