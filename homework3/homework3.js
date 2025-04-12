@@ -486,4 +486,31 @@ function validatePasswords() {
       passwordMessage.classList.add('success');
     }
   }
+
+  function validateEverything() 
+    {
+      let valid = true;
+
+        valid &= validateFirstName();
+        valid &= validateMiddleInitial();
+        valid &= validateLastName();
+        valid &= validateSSN();
+        valid &= validateEmail();
+        valid &= validateUserId();
+        valid &= validatePasswords();
+
+      if (valid) 
+        {
+          document.getElementById("submitButton").style.display = "inline";
+          alert("All validations passed. You may now submit the form.");
+        } 
+      else 
+        {
+          alert("Some fields are invalid. Please correct the errors and try again.");
+        }
+
+      return valid;
+  }
+
 }
+
