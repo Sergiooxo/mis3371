@@ -123,12 +123,6 @@ function validateLastName()
     }
 }
 
-//validation function for submit event (first, middle, and last)
-document.querySelector('form[name="registration"]').onsubmit = function() 
-{
-    return validateFirstName() && validateMiddleInitial() && validateLastName();
-};
-
 //validation on input for extra validataion in realtime
 document.getElementById("first_name").oninput = function() 
 {
@@ -290,11 +284,6 @@ function validateState() {
         return true;  //Once state selected allow submission
     }
 }
-
-// Validate on form submission
-document.querySelector('form[name="registration"]').onsubmit = function() {
-    return validateState();
-};
 
 function validateAddressLine1() 
   {
@@ -486,7 +475,7 @@ function validatePasswords() {
       passwordMessage.classList.add('success');
     }
   }
-  
+
 // Add event listener for the Validate button (input type)
 document.getElementById('validate').addEventListener('click', function(event) {
   event.preventDefault(); // Prevent any default behavior (form submission)
