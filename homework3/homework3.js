@@ -517,11 +517,85 @@ document.getElementById('validate').addEventListener('click', function(event) {
   validateEverything(); // Trigger validation
 });
 
-// Event listener for the Submit button
-document.getElementById('submitButton').addEventListener('click', function(event) {
-  event.preventDefault(); // Prevent the form from submitting automatically
-  
-  // Redirect to a thank you page upon successful submission
-  window.location.href = "thank_you.html"; // Replace with the actual URL of your thank-you page
-});
+// Example validation functions (you can adjust them to handle your field-specific validation)
+function validateFirstName() {
+  const firstName = document.getElementById('firstName').value;
+  if (firstName.trim() === "") {
+    alert("First name is required!");
+    return false;
+  }
+  return true;
+}
+
+function validateMiddleInitial() {
+  const middleInitial = document.getElementById('middleInitial').value;
+  if (middleInitial.trim() === "") {
+    alert("Middle initial is required!");
+    return false;
+  }
+  return true;
+}
+
+function validateLastName() {
+  const lastName = document.getElementById('lastName').value;
+  if (lastName.trim() === "") {
+    alert("Last name is required!");
+    return false;
+  }
+  return true;
+}
+
+function validateEmail() {
+  const email = document.getElementById('email').value;
+  if (email.trim() === "") {
+    alert("Email is required!");
+    return false;
+  }
+  return true;
+}
+
+function validatePhone() {
+  const phone = document.getElementById('phone').value;
+  if (phone.trim() === "") {
+    alert("Phone number is required!");
+    return false;
+  }
+  return true;
+}
+
+function validateAddress() {
+  const address = document.getElementById('address').value;
+  if (address.trim() === "") {
+    alert("Address is required!");
+    return false;
+  }
+  return true;
+}
+
+function validateZipCode() {
+  const zipCode = document.getElementById('zipCode').value;
+  if (zipCode.trim() === "") {
+    alert("Zip code is required!");
+    return false;
+  }
+  return true;
+}
+
+function validateUserId() {
+  const userId = document.getElementById('userId').value;
+  if (userId.trim() === "") {
+    alert("User ID is required!");
+    return false;
+  }
+  return true;
+}
+
+function validatePasswords() {
+  const password = document.getElementById('password').value;
+  if (password.trim() === "") {
+    alert("Password is required!");
+    return false;
+  }
+  return true;
+}
 }
