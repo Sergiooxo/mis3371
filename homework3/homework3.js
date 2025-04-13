@@ -482,29 +482,57 @@ document.getElementById('validate').addEventListener('click', function(event) {
   validateEverything(); // Call your validateEverything function
 });
 
-// Function that validates the form and handles the submit button visibility
+// Function that validates the form and controls Submit button visibility
 function validateEverything() {
-  console.log("Validate button clicked"); // Debugging line
+  console.log("Validate button clicked");
 
-  // Running all the individual field validations
+  // Run all validation functions and collect the results
   const isValid =
     validateFirstName() &&
     validateMiddleInitial() &&
     validateLastName() &&
+    validateDateOfBirth() &&
+    validateSSN() &&
     validateEmail() &&
     validatePhone() &&
-    validateAddress() &&
+    validateAddressLine1() &&
+    validateAddressLine2() && // Optional? Adjust if not required
+    validateCity() &&
+    validateState() &&
     validateZipCode() &&
     validateUserId() &&
     validatePasswords();
 
-  // If the form is valid, show the Submit button, otherwise hide it
   if (isValid) {
-    document.getElementById("submitButton").style.display = "inline-block"; // Show Submit button
+    document.getElementById("submitButton").style.display = "inline-block";
   } else {
     alert("There are errors in the form. Please correct them before submitting.");
-    document.getElementById("submitButton").style.display = "none"; // Hide Submit button if validation fails
+    document.getElementById("submitButton").style.display = "none";
   }
 }
 
-}
+// Final validation on actual form submission
+document.getElementById("registration").addEventListener("submit", function(event) {
+  const isValid =
+    validateFirstName() &&
+    validateMiddleInitial() &&
+    validateLastName() &&
+    validateDateOfBirth() &&
+    validateSSN() &&
+    validateEmail() &&
+    validatePhone() &&
+    validateAddressLine1() &&
+    validateAddressLine2() && // Optional?
+    validateCity() &&
+    validateState() &&
+    validateZipCode() &&
+    validateUserId() &&
+    validatePasswords();
+
+  if (!isValid) {
+    event.preventDefault();
+    alert("Please correct the highlighted errors before submitting the form.");
+  } else {
+    formatPhoneNumber(); // Optional: format before submit
+  }
+});
