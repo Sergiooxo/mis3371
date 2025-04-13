@@ -487,27 +487,37 @@ function validatePasswords() {
     }
   }
 
+// Function to validate the entire form
+function validateEverything() {
+  console.log("Validate button clicked"); // Debugging line
 
-  function validateEverything() {
-    console.log("Validate button clicked"); // Debugging line
+  // Running all the individual field validations
+  const isValid =
+    validateFirstName() &&
+    validateMiddleInitial() &&
+    validateLastName() &&
+    validateDateOfBirth() &&
+    validateSSN() &&
+    validateEmail() &&
+    validatePhone() &&
+    validateAddress() &&
+    validateZipCode() &&
+    validateUserId() &&
+    validatePasswords();
 
-    const isValid =
-      validateFirstName() &&
-      validateMiddleInitial() &&
-      validateLastName() &&
-      validateDateOfBirth() &&
-      validateSSN() &&
-      validateEmail() &&
-      validatePhone() &&
-      validateAddress() &&
-      validateZipCode() &&
-      validateUserId() &&
-      validatePasswords();
-  
-    if (isValid) {
-      document.getElementById("submitButton").style.display = "inline-block";
-    } else {
-      alert("There are errors in the form. Please correct them before submitting.");
-      document.getElementById("submitButton").style.display = "none";
-    }
+  // If the form is valid, show the Submit button, otherwise hide it
+  if (isValid) {
+    document.getElementById("submitButton").style.display = "inline-block"; // Show Submit button
+  } else {
+    alert("There are errors in the form. Please correct them before submitting.");
+    document.getElementById("submitButton").style.display = "none"; // Hide Submit button if validation fails
   }
+}
+
+// Function to handle the form submission, triggered after validation
+document.getElementById('submitButton').addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent the form from submitting automatically
+  
+  // Optionally, you can do further checks here before submitting the form, or just submit it
+  document.querySelector('form[name="registration"]').submit(); // Programmatically submit the form
+});
