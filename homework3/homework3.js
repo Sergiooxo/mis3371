@@ -477,9 +477,11 @@ function validatePasswords() {
   }
 
 // Add event listener for the Validate button (input type)
-document.getElementById('validate').addEventListener('click', function(event) {
-  event.preventDefault(); // Prevent any default behavior (form submission)
-  validateEverything(); // Call your validateEverything function
+document.getElementById('validateButton').addEventListener('click', function(event) {
+  const formIsValid = validateForm();
+  if (!formIsValid) {
+    event.preventDefault();
+  }
 });
 
 // Function that validates the form and controls Submit button visibility
