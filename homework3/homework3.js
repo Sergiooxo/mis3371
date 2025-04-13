@@ -486,42 +486,42 @@ function validatePasswords() {
       passwordMessage.classList.add('success');
     }
   }
+// Function to validate everything when the "Validate" button is clicked
+function validateEverything() {
+  console.log("Validate button clicked"); // Debugging line
 
-  function validateEverything() {
-    console.log("Validate button clicked"); // Debugging line
-  
-    // Running all the individual field validations
-    const isValid =
-      validateFirstName() &&
-      validateMiddleInitial() &&
-      validateLastName() &&
-      validateEmail() &&
-      validatePhone() &&
-      validateAddress() &&
-      validateZipCode() &&
-      validateUserId() &&
-      validatePasswords();
-  
-    // If the form is valid, show the Submit button, otherwise hide it
-    if (isValid) {
-      document.getElementById("submitButton").style.display = "inline-block"; // Show Submit button
-    } else {
-      alert("There are errors in the form. Please correct them before submitting.");
-      document.getElementById("submitButton").style.display = "none"; // Hide Submit button if validation fails
-    }
+  // Running all the individual field validations
+  const isValid =
+    validateFirstName() &&
+    validateMiddleInitial() &&
+    validateLastName() &&
+    validateEmail() &&
+    validatePhone() &&
+    validateAddress() &&
+    validateZipCode() &&
+    validateUserId() &&
+    validatePasswords();
+
+  // If the form is valid, show the Submit button, otherwise hide it
+  if (isValid) {
+    document.getElementById("submitButton").style.display = "inline-block"; // Show Submit button
+  } else {
+    alert("There are errors in the form. Please correct them before submitting.");
+    document.getElementById("submitButton").style.display = "none"; // Hide Submit button if validation fails
   }
+}
+
+// Event listener for the Validate button
+document.getElementById('validate').addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent form submission
+  validateEverything(); // Trigger validation
+});
+
+// Event listener for the Submit button
+document.getElementById('submitButton').addEventListener('click', function(event) {
+  event.preventDefault(); // Prevent the form from submitting automatically
   
-  // Event listener for the Validate button
-  document.getElementById('validateButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent form submission
-    validateEverything(); // Trigger validation
-  });
-  
-  // Event listener for the Submit button
-  document.getElementById('submitButton').addEventListener('click', function(event) {
-    event.preventDefault(); // Prevent the form from submitting automatically
-    
-    // Redirect to a thank you page upon successful submission
-    window.location.href = "thank_you.html"; // Replace with the actual URL of your thank-you page
-  });
+  // Redirect to a thank you page upon successful submission
+  window.location.href = "thank_you.html"; // Replace with the actual URL of your thank-you page
+});
 }
